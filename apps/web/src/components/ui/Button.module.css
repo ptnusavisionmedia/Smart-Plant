@@ -31,7 +31,7 @@
   background-color: var(--sp-accent-hover);
 }
 .primary:active:not(:disabled) {
-  background-color: var(--sp-accent-hover);
+  background-color: var(--sp-accent-down);
 }
 .primary:disabled {
   background-color: var(--sp-background-pasteboard);
@@ -47,6 +47,9 @@
 }
 .secondary:hover:not(:disabled) {
   background-color: var(--sp-background-layer-1);
+}
+.secondary:active:not(:disabled) {
+  background-color: var(--sp-background-pasteboard);
 }
 .secondary:disabled {
   background-color: var(--sp-background-pasteboard);
@@ -64,6 +67,10 @@
 .emergency:hover:not(:disabled) {
   background-color: var(--sp-negative-content);
 }
+.emergency:active:not(:disabled) {
+  background-color: var(--sp-negative-content);
+  filter: brightness(0.92);
+}
 .emergency:disabled {
   background-color: var(--sp-background-pasteboard);
   color: var(--sp-neutral-disabled);
@@ -78,4 +85,8 @@
 }
 .ghost:hover:not(:disabled) {
   background-color: var(--sp-accent-subtle);
+}
+.ghost:active:not(:disabled) {
+  background-color: var(--sp-accent-subtle);
+  color: var(--sp-accent-hover);
 }

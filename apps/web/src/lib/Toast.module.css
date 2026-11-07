@@ -16,9 +16,13 @@
   display: flex;
   align-items: center;
   padding: var(--sp-space-sm) var(--sp-space-lg);
-  background-color: #292929;
+  background-color: var(--sp-neutral-content);
   color: #ffffff;
   border-radius: var(--sp-radius-md);
   font-size: var(--sp-type-body-sm-size);
   box-shadow: var(--sp-shadow-elevated);
+}
+
+.toastNegative {
+  background-color: var(--sp-negative);
 }
