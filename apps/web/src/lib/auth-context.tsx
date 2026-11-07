@@ -6,7 +6,6 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -35,12 +34,14 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<AuthStatus>("idle");
   const [user, setUser] = useState<UserProfile | null>(null);
-  const initialized = useRef(false);
 
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-
+    // Deliberately no "already ran" ref guard: in dev, React StrictMode
+    // mounts this effect, cleans it up, then mounts it again. A ref guard
+    // would make the second mount a no-op while the *first* mount's cleanup
+    // had already set `cancelled`, permanently stranding the status at
+    // "idle" (infinite "Memeriksa sesi..." spinner). The `cancelled` flag
+    // alone is the correct cancellation pattern for a double-invoked effect.
     let cancelled = false;
     (async () => {
       const ok = await refreshSession();
