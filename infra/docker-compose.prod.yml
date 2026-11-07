@@ -1,0 +1,84 @@
+name: smart-plant-prod
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: smart-plant-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      API_DOMAIN: ${API_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+      - caddy_logs:/var/log/caddy
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ..
+      dockerfile: apps/api/Dockerfile
+    container_name: smart-plant-api
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    environment:
+      NODE_ENV: production
+      API_HOST: 0.0.0.0
+      API_PORT: 3001
+      DATABASE_FILE: /data/smartplant.db
+      MQTT_URL: mqtt://mosquitto:1883
+    volumes:
+      - api_data:/data
+    expose:
+      - "3001"
+    depends_on:
+      mosquitto:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  mosquitto:
+    build:
+      context: ./mosquitto
+      dockerfile: Dockerfile
+    container_name: smart-plant-mosquitto
+    restart: unless-stopped
+    environment:
+      API_HTTP_HOST: api
+      API_HTTP_PORT: 3001
+      INTERNAL_MQTT_SHARED_SECRET: ${INTERNAL_MQTT_SHARED_SECRET}
+    ports:
+      - "8883:8883" # TLS MQTT only in production — 1883 stays internal-only
+    volumes:
+      - ./mosquitto/mosquitto.conf.template:/mosquitto/config/mosquitto.conf.template:ro
+      - ./mosquitto/docker-entrypoint.sh:/mosquitto/docker-entrypoint.sh:ro
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+      - caddy_data:/mosquitto/certs:ro # reuse Caddy's ACME certs for the 8883 listener
+    entrypoint: ["/bin/sh", "/mosquitto/docker-entrypoint.sh"]
+    healthcheck:
+      test: ["CMD-SHELL", "mosquitto_sub -t '$$SYS/#' -C 1 -i healthcheck -W 3 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  api_data:
+  mosquitto_data:
+  mosquitto_log:
+  caddy_data:
+  caddy_config:
+  caddy_logs:
+
+networks:
+  default:
+    name: smart-plant-prod

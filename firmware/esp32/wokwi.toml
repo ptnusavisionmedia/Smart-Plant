@@ -1,0 +1,9 @@
+[wokwi]
+version = 1
+elf = ".pio/build/esp32dev-wokwi/firmware.elf"
+firmware = ".pio/build/esp32dev-wokwi/firmware.bin"
+
+# Build the right environment before simulating:
+#   pio run -e esp32dev-wokwi
+# Then open this folder with the Wokwi VS Code extension (F1 -> "Wokwi: Start
+# Simulator") or run `wokwi-cli .` — see WOKWI.md for the full walkthrough.

@@ -1,0 +1,50 @@
+.panel {
+  background-color: var(--sp-background-base);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-xl);
+  padding: var(--sp-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-sm);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.title {
+  font-size: var(--sp-type-title-size);
+  font-weight: var(--sp-type-title-weight);
+  color: var(--sp-neutral-content);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+.axisLabel {
+  font-size: 10px;
+  fill: var(--sp-neutral-subdued);
+}
+
+.unitLabel {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.empty {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+  padding: var(--sp-space-xxl) 0;
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-sm);
+}
+
+.reason {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.latchNotice {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-negative-content);
+  background-color: var(--sp-negative-subtle);
+  border-radius: var(--sp-radius-md);
+  padding: var(--sp-space-sm) var(--sp-space-md);
+}

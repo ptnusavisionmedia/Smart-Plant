@@ -1,0 +1,39 @@
+{
+  "name": "@smart-plant/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json --noEmit",
+    "start": "tsx src/server.ts",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.0.1",
+    "@fastify/cors": "^10.0.1",
+    "@fastify/helmet": "^12.0.1",
+    "@fastify/jwt": "^10.2.7",
+    "@fastify/websocket": "^11.0.1",
+    "@smart-plant/db": "workspace:*",
+    "@smart-plant/shared": "workspace:*",
+    "argon2": "^0.41.1",
+    "drizzle-orm": "^0.45.4",
+    "fastify": "^5.1.0",
+    "firebase-admin": "^12.7.0",
+    "fastify-plugin": "^5.0.1",
+    "mqtt": "^5.10.1",
+    "pino": "^9.5.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/ws": "^8.5.12",
+    "pino-pretty": "^13.0.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  }
+}

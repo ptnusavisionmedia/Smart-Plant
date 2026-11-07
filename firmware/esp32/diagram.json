@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "author": "Smart Plant Emergency Detector",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-c-v4",
+      "id": "esp32",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht22",
+      "top": -120,
+      "left": 220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic",
+      "top": -120,
+      "left": 360,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot-soil",
+      "top": 140,
+      "left": 220,
+      "attrs": { "value": "50" },
+      "comment": "Stand-in for a capacitive soil moisture sensor's raw ADC output (Wokwi has no soil moisture part). See WOKWI.md."
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn-float-switch",
+      "top": 140,
+      "left": 360,
+      "attrs": { "color": "blue" },
+      "comment": "Stand-in for the float switch: pressed = water below the float level (active LOW)."
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn-emergency-stop",
+      "top": 140,
+      "left": 480,
+      "attrs": { "color": "red" },
+      "comment": "Stand-in for the physical emergency-stop button (active LOW)."
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led-pump",
+      "top": -120,
+      "left": 480,
+      "attrs": { "color": "blue", "label": "PUMP" },
+      "comment": "Stand-in for the pump relay module's control LED / coil."
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r-led-pump",
+      "top": -140,
+      "left": 460,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["esp32:4", "dht22:SDA", "green", ["v20"]],
+    ["dht22:VCC", "esp32:3V3", "red", ["v-20"]],
+    ["dht22:GND", "esp32:GND.1", "black", ["v-40"]],
+
+    ["esp32:5", "ultrasonic:TRIG", "green", ["v20"]],
+    ["esp32:18", "ultrasonic:ECHO", "yellow", ["v30"]],
+    ["ultrasonic:VCC", "esp32:5V", "red", ["v-20"]],
+    ["ultrasonic:GND", "esp32:GND.2", "black", ["v-40"]],
+
+    ["esp32:34", "pot-soil:SIG", "green", ["v20"]],
+    ["pot-soil:VCC", "esp32:3V3", "red", ["v-20"]],
+    ["pot-soil:GND", "esp32:GND.3", "black", ["v-40"]],
+
+    ["esp32:19", "btn-float-switch:1.l", "green", ["v20"]],
+    ["btn-float-switch:2.l", "esp32:GND.1", "black", ["v40"]],
+
+    ["esp32:21", "btn-emergency-stop:1.l", "green", ["v20"]],
+    ["btn-emergency-stop:2.l", "esp32:GND.2", "black", ["v40"]],
+
+    ["esp32:23", "r-led-pump:1", "green", ["v20"]],
+    ["r-led-pump:2", "led-pump:A", "green", ["v0"]],
+    ["led-pump:C", "esp32:GND.3", "black", ["v40"]]
+  ],
+  "dependencies": {}
+}

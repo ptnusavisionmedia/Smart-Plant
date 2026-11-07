@@ -1,0 +1,74 @@
+name: mobile
+description: "Smart Plant Emergency Detector - Flutter mobile app."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Routing
+  go_router: ^14.8.1
+
+  # HTTP
+  dio: ^5.7.0
+
+  # WebSocket
+  web_socket_channel: ^3.0.1
+
+  # Secure token storage
+  flutter_secure_storage: ^9.2.2
+
+  # Push notifications
+  firebase_core: ^3.15.2
+  firebase_messaging: ^15.1.6
+  flutter_local_notifications: ^18.0.1
+
+  # Error tracking
+  sentry_flutter: ^8.14.0
+
+  # Charts
+  fl_chart: ^0.69.2
+
+  # Formatting (dates/numbers, tabular figures helpers)
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+  fonts:
+    - family: Source Sans 3
+      fonts:
+        - asset: assets/fonts/SourceSans3-Variable.ttf
+          weight: 400
+        - asset: assets/fonts/SourceSans3-Variable.ttf
+          weight: 600
+        - asset: assets/fonts/SourceSans3-Variable.ttf
+          weight: 700
+        - asset: assets/fonts/SourceSans3-Variable.ttf
+          weight: 800
+    - family: Source Code Pro
+      fonts:
+        - asset: assets/fonts/SourceCodePro-Regular.ttf
+          weight: 400

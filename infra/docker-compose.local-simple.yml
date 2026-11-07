@@ -1,0 +1,35 @@
+# Simplified, STANDALONE local compose file: plain eclipse-mosquitto image
+# with static password_file + acl_file, no Go plugin build required.
+# Run this INSTEAD OF docker-compose.yml (don't run both at once — they share
+# the same container name / ports).
+#
+# Usage:
+#   docker compose -f infra/docker-compose.local-simple.yml up -d
+#
+# First-time setup (create the password file with one entry per device):
+#   touch infra/data/passwd
+#   docker exec -it smart-plant-mosquitto mosquitto_passwd -b /mosquitto/config/passwd api-bridge <MQTT_BRIDGE_PASSWORD>
+#   docker exec -it smart-plant-mosquitto mosquitto_passwd -b /mosquitto/config/passwd <device_uid> <mqtt_secret>
+#   docker restart smart-plant-mosquitto
+
+name: smart-plant-local
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: smart-plant-mosquitto
+    restart: unless-stopped
+    entrypoint: ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.local.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./mosquitto/acl.conf:/mosquitto/config/acl.conf:ro
+      - ./data/passwd:/mosquitto/config/passwd
+      - ./data/mosquitto:/mosquitto/data
+      - ./data/mosquitto-log:/mosquitto/log
+
+networks:
+  default:
+    name: smart-plant-local

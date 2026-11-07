@@ -1,0 +1,60 @@
+### Node / pnpm ###
+node_modules/
+.pnpm-store/
+dist/
+.turbo/
+coverage/
+
+### Next.js ###
+.next/
+out/
+apps/web/.env*.local
+
+### Env & secrets ###
+.env
+.env.local
+!.env.example
+infra/data/*
+!infra/data/.gitkeep
+*.pem
+*.key
+
+### SQLite ###
+*.db
+*.db-wal
+*.db-shm
+packages/db/data/
+
+### Flutter / Dart ###
+apps/mobile/.dart_tool/
+apps/mobile/.flutter-plugins
+apps/mobile/.flutter-plugins-dependencies
+apps/mobile/.packages
+apps/mobile/build/
+apps/mobile/android/.gradle/
+apps/mobile/android/local.properties
+apps/mobile/ios/Pods/
+apps/mobile/ios/.symlinks/
+apps/mobile/**/*.g.dart
+apps/mobile/android/app/google-services.json
+apps/mobile/ios/Runner/GoogleService-Info.plist
+
+### PlatformIO ###
+firmware/esp32/.pio/
+firmware/esp32/.vscode/
+
+### IDE / OS ###
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+### Logs ###
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+### Testing ###
+playwright-report/
+test-results/

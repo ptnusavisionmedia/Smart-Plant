@@ -1,0 +1,158 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-space-lg);
+  height: var(--sp-topbar-height);
+  padding: 0 var(--sp-space-lg);
+  background-color: var(--sp-background-base);
+  border-bottom: 1px solid var(--sp-border-subtle);
+}
+
+.menuButton {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: var(--sp-radius-md);
+  color: var(--sp-neutral-content);
+  cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  .menuButton {
+    display: flex;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+.connection {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-space-xs);
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.dotLive,
+.dotStale {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotLive {
+  background-color: var(--sp-positive);
+}
+
+.dotStale {
+  background-color: var(--sp-neutral-subdued);
+}
+
+.bell {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sp-radius-md);
+  color: var(--sp-neutral-content);
+}
+
+.bell:hover {
+  background-color: var(--sp-background-layer-1);
+}
+
+.bellBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-negative);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account {
+  position: relative;
+}
+
+.accountButton {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-space-sm);
+  height: 40px;
+  padding: 0 var(--sp-space-sm);
+  background: none;
+  border: none;
+  border-radius: var(--sp-radius-md);
+  cursor: pointer;
+}
+
+.accountButton:hover {
+  background-color: var(--sp-background-layer-1);
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--sp-accent-subtle);
+  color: var(--sp-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.userName {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-content);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  min-width: 180px;
+  background-color: var(--sp-background-base);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-md);
+  box-shadow: var(--sp-shadow-elevated);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--sp-space-sm) var(--sp-space-md);
+  background: none;
+  border: none;
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-content);
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: var(--sp-background-layer-1);
+}

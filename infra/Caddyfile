@@ -1,0 +1,30 @@
+# Smart Plant — production reverse proxy (Caddy auto-TLS via Let's Encrypt).
+# Fill in real domains before deploying (infra/docker-compose.prod.yml).
+
+{$API_DOMAIN:api.yourdomain.com} {
+	encode gzip zstd
+
+	@websocket {
+		header Connection *Upgrade*
+		header Upgrade websocket
+	}
+
+	reverse_proxy @websocket api:3001
+	reverse_proxy api:3001
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+
+	log {
+		output file /var/log/caddy/api-access.log
+	}
+}
+
+# MQTT does not speak HTTP, so Caddy cannot terminate TLS for it the way it
+# does for api/ws. Mosquitto's own `listener 8883` block handles TLS 8883
+# directly using certs issued by Caddy's on-disk ACME storage (see
+# infra/README.md "TLS for MQTT").

@@ -1,0 +1,25 @@
+.tile {
+  background-color: var(--sp-background-layer-1);
+  border-radius: var(--sp-radius-md);
+  padding: var(--sp-space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.value {
+  font-size: var(--sp-type-data-md-size);
+  font-weight: var(--sp-type-data-md-weight);
+  color: var(--sp-neutral-content);
+}
+
+.unit {
+  font-size: var(--sp-type-body-sm-size);
+  font-weight: 400;
+  color: var(--sp-neutral-subdued);
+}

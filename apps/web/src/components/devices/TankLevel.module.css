@@ -1,0 +1,65 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-space-xs);
+}
+
+.track {
+  position: relative;
+  width: 8px;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-border-subtle);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--sp-chart-water);
+  transition: height 250ms ease-out;
+}
+
+.marker {
+  position: absolute;
+  left: -3px;
+  width: 14px;
+  height: 1px;
+  background-color: var(--sp-neutral-subdued);
+}
+
+.label {
+  font-size: var(--sp-type-data-sm-size);
+  font-weight: var(--sp-type-data-sm-weight);
+  color: var(--sp-neutral-content);
+}
+
+.refill {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-informative-content);
+  text-align: center;
+}
+
+.refillWarning {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-notice-content);
+  text-align: center;
+}
+
+.unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-space-xs);
+  width: 48px;
+}
+
+.unavailableText {
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+  text-align: center;
+  max-width: 100px;
+}

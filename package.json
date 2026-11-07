@@ -1,0 +1,29 @@
+{
+  "name": "smart-plant",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "db:migrate": "pnpm --filter @smart-plant/db run migrate",
+    "db:seed": "pnpm --filter @smart-plant/db run seed",
+    "db:generate": "pnpm --filter @smart-plant/db run generate",
+    "format": "prettier --write \"**/*.{ts,tsx,js,cjs,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,cjs,json,md}\""
+  },
+  "devDependencies": {
+    "turbo": "^2.1.3",
+    "typescript": "^5.6.3",
+    "prettier": "^3.3.3",
+    "eslint": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0"
+  }
+}

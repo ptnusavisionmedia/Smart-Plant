@@ -1,0 +1,52 @@
+# Smart Plant — Mosquitto configuration (local & production share this file).
+# Broker auth/ACL decisions are delegated to the API via the mosquitto-go-auth
+# plugin's HTTP backend, hitting the internal endpoints implemented in T-18
+# (apps/api/src/routes/internal-mqtt.ts). The secret in the URI query string is
+# checked by the API against INTERNAL_MQTT_SHARED_SECRET.
+#
+# Quick local mode without building the Go plugin: use mosquitto.local.conf
+# instead (static password_file + acl_file) — see infra/README.md.
+
+listener 1883
+protocol mqtt
+
+listener 9001
+protocol websockets
+
+# Production TLS listener (T-53). Uncomment and point at Caddy's ACME-issued
+# cert for API_DOMAIN (shared via the `caddy_data` volume in
+# docker-compose.prod.yml, see infra/README.md "TLS for MQTT"). Devices then
+# connect on 8883 instead of 1883; keep 1883 bound to the docker-internal
+# network only in production (do not publish it on the host).
+#
+# listener 8883
+# protocol mqtt
+# cafile /mosquitto/certs/ca.crt
+# certfile /mosquitto/certs/api.yourdomain.com/api.yourdomain.com.crt
+# keyfile /mosquitto/certs/api.yourdomain.com/api.yourdomain.com.key
+
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+log_dest stdout
+
+allow_anonymous false
+
+auth_plugin /mosquitto/go-auth.so
+auth_opt_log_level debug
+auth_opt_backends http
+auth_opt_check_prefix false
+auth_opt_hasher plain
+
+# HTTP backend: Mosquitto calls these on every CONNECT / PUBLISH / SUBSCRIBE.
+# host.docker.internal lets the broker container reach the API running on the
+# host machine via `pnpm dev` in local development; in production both run in
+# the same docker-compose network (see docker-compose.prod.yml).
+auth_opt_http_host __API_HTTP_HOST__
+auth_opt_http_port __API_HTTP_PORT__
+auth_opt_http_getuser_uri /api/v1/internal/mqtt/auth?secret=__INTERNAL_MQTT_SHARED_SECRET__
+auth_opt_http_aclcheck_uri /api/v1/internal/mqtt/acl?secret=__INTERNAL_MQTT_SHARED_SECRET__
+auth_opt_http_with_tls false
+auth_opt_http_verify_peer false
+auth_opt_http_response_mode status
+auth_opt_http_params_mode json

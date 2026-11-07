@@ -1,0 +1,27 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-space-xs);
+  font-size: var(--sp-type-detail-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.dotLive,
+.dotStale {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotLive {
+  background-color: var(--sp-positive);
+}
+
+.dotStale {
+  background-color: var(--sp-neutral-subdued);
+}
+
+.time {
+  color: var(--sp-neutral-subdued);
+}

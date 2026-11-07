@@ -1,0 +1,157 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-xl);
+}
+
+.backLink {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-accent);
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-space-md);
+  flex-wrap: wrap;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-xs);
+}
+
+.location {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.editLink {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--sp-accent);
+  font-size: var(--sp-type-detail-size);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-sm);
+  max-width: 320px;
+}
+
+.editActions {
+  display: flex;
+  gap: var(--sp-space-sm);
+}
+
+.headerMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-space-xs);
+}
+
+.reasons {
+  list-style: disc;
+  padding-left: var(--sp-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-space-xl);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-lg);
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-lg);
+}
+
+.card,
+.heroCard,
+.tankCard {
+  background-color: var(--sp-background-base);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-xl);
+  padding: var(--sp-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-md);
+}
+
+.heroCard {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-space-xl);
+  flex-wrap: wrap;
+}
+
+.metrics {
+  flex: 1;
+  min-width: 220px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-space-sm);
+}
+
+.tankCard {
+  align-items: center;
+}
+
+.historyLink {
+  align-self: flex-start;
+  color: var(--sp-accent);
+  font-weight: 600;
+  font-size: var(--sp-type-body-sm-size);
+}
+
+.configSection,
+.dangerZone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-space-md);
+  padding-top: var(--sp-space-lg);
+  border-top: 1px solid var(--sp-border-subtle);
+}
+
+.profileHint {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+}
+
+.profileLink {
+  color: var(--sp-accent);
+  font-weight: 600;
+}
+
+.dangerBody {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+  max-width: 560px;
+}

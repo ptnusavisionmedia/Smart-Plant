@@ -1,0 +1,27 @@
+.wrap {
+  display: inline-flex;
+  height: 32px;
+  padding: 2px;
+  background-color: var(--sp-background-layer-1);
+  border-radius: var(--sp-radius-full);
+  gap: 2px;
+}
+
+.segment,
+.segmentActive {
+  height: 28px;
+  padding: 0 14px;
+  border-radius: var(--sp-radius-full);
+  border: none;
+  background: none;
+  font-size: var(--sp-type-detail-size);
+  font-weight: 600;
+  color: var(--sp-neutral-subdued);
+  cursor: pointer;
+}
+
+.segmentActive {
+  background-color: var(--sp-background-base);
+  border: 1px solid var(--sp-border-subtle);
+  color: var(--sp-neutral-content);
+}

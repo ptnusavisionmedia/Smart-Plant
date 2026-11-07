@@ -1,0 +1,38 @@
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-space-sm);
+  padding: var(--sp-space-xxl) var(--sp-space-lg);
+  background-color: var(--sp-background-base);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-xl);
+}
+
+.icon,
+.iconNegative {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-background-layer-1);
+}
+
+.iconNegative {
+  background-color: var(--sp-negative-subtle);
+}
+
+.title {
+  font-size: var(--sp-type-title-size);
+  font-weight: var(--sp-type-title-weight);
+  color: var(--sp-neutral-content);
+}
+
+.body {
+  font-size: var(--sp-type-body-sm-size);
+  color: var(--sp-neutral-subdued);
+  max-width: 420px;
+}

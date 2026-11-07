@@ -1,0 +1,30 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  color: var(--sp-neutral-content);
+}
+
+.data-lg {
+  font-size: var(--sp-type-data-lg-size);
+  font-weight: var(--sp-type-data-lg-weight);
+}
+
+.data-md {
+  font-size: var(--sp-type-data-md-size);
+  font-weight: var(--sp-type-data-md-weight);
+}
+
+.unit {
+  font-size: var(--sp-type-detail-size);
+  font-weight: var(--sp-type-detail-weight);
+  margin-left: 2px;
+  color: var(--sp-neutral-subdued);
+}
