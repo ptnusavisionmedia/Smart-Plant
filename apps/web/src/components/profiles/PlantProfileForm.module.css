@@ -45,8 +45,19 @@
   height: 40px;
   padding: 0 12px;
   border: 1px solid var(--sp-border-strong);
-  border-radius: var(--sp-radius-md);
+  border-radius: var(--sp-radius-sm);
   font-size: var(--sp-type-body-sm-size);
+  transition: border-color 130ms ease-out;
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--sp-neutral-subdued);
+}
+
+.input:focus-visible {
+  border-color: var(--sp-accent);
+  outline: 2px solid var(--sp-focus-indicator);
+  outline-offset: -1px;
 }
 
 .fieldError {

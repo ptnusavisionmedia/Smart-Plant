@@ -21,9 +21,20 @@
   padding: 0 12px;
   background-color: var(--sp-background-base);
   border: 1px solid var(--sp-border-strong);
-  border-radius: var(--sp-radius-md);
+  border-radius: var(--sp-radius-sm);
   font-size: var(--sp-type-body-sm-size);
   color: var(--sp-neutral-content);
+  transition: border-color 130ms ease-out;
+}
+
+.select:hover:not(:disabled) {
+  border-color: var(--sp-neutral-subdued);
+}
+
+.select:focus-visible {
+  border-color: var(--sp-accent);
+  outline: 2px solid var(--sp-focus-indicator);
+  outline-offset: -1px;
 }
 
 .actions {
