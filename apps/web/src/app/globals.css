@@ -14,11 +14,12 @@
   --sp-neutral-disabled: #c6c6c6;
   --sp-border-subtle: #e1e1e1;
   --sp-border-strong: #8f8f8f;
-  --sp-accent: #3b63fb;
-  --sp-accent-hover: #274dea;
-  --sp-accent-subtle: #e5f0fe;
+  --sp-accent: #1473e6;
+  --sp-accent-hover: #0d66d0;
+  --sp-accent-down: #0b59b8;
+  --sp-accent-subtle: #e6f2ff;
   --sp-on-accent: #ffffff;
-  --sp-focus-indicator: #4b75ff;
+  --sp-focus-indicator: #1473e6;
   --sp-positive: #05834e;
   --sp-positive-subtle: #d7f7e1;
   --sp-positive-content: #036e45;
@@ -30,19 +31,20 @@
   --sp-negative-subtle: #ffebe8;
   --sp-negative-content: #b72818;
   --sp-on-negative: #ffffff;
-  --sp-informative: #3b63fb;
-  --sp-informative-subtle: #e5f0fe;
-  --sp-informative-content: #274dea;
+  --sp-informative: #1473e6;
+  --sp-informative-subtle: #e6f2ff;
+  --sp-informative-content: #0d66d0;
   --sp-chart-soil: #05834e;
   --sp-chart-temperature: #c24e00;
-  --sp-chart-humidity: #3b63fb;
+  --sp-chart-humidity: #1473e6;
   --sp-chart-water: #087e89;
   --sp-overlay: rgba(0, 0, 0, 0.4);
 
   /* Typography */
-  --sp-font-family: "Source Sans 3", "Source Sans Pro", -apple-system, "San Francisco", Roboto,
-    "Segoe UI", sans-serif;
-  --sp-font-family-code: "Source Code Pro", SFMono-Regular, Consolas, monospace;
+  --sp-font-family: var(--font-source-sans), "Source Sans 3", "Source Sans Pro", -apple-system,
+    "San Francisco", Roboto, "Segoe UI", sans-serif;
+  --sp-font-family-code: var(--font-source-code-pro), "Source Code Pro", SFMono-Regular, Consolas,
+    monospace;
 
   --sp-type-display-size: 36px;
   --sp-type-display-weight: 800;
