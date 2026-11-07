@@ -30,8 +30,9 @@
 }
 
 .title {
-  font-size: var(--sp-type-title-size);
-  font-weight: var(--sp-type-title-weight);
+  font-size: var(--sp-type-h3-size);
+  font-weight: var(--sp-type-h3-weight);
+  line-height: var(--sp-type-h3-line);
   color: var(--sp-neutral-content);
 }
 
