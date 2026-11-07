@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useNotificationsCount } from "@/lib/notifications-context";
+import { SproutIcon } from "@/components/ui/icons";
 import styles from "./Sidebar.module.css";
 
 const NAV_ITEMS = [
@@ -20,7 +21,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
     <nav className={styles.sidebar} aria-label="Navigasi utama">
       <div className={styles.brand}>
         <span className={styles.brandIcon} aria-hidden>
-          🌱
+          <SproutIcon size={20} />
         </span>
         <span>Smart Plant</span>
       </div>

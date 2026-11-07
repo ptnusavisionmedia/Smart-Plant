@@ -29,6 +29,11 @@
   justify-content: center;
 }
 
+.brandIcon {
+  display: inline-flex;
+  color: var(--sp-accent);
+}
+
 .title {
   font-size: var(--sp-type-h2-size);
   font-weight: var(--sp-type-h2-weight);

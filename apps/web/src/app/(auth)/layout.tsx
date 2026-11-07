@@ -4,6 +4,7 @@ import { useEffect, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { LoadingState } from "@/components/ui/States";
+import { SproutIcon } from "@/components/ui/icons";
 import styles from "./auth.module.css";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
@@ -28,7 +29,9 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.brand}>
-          <span aria-hidden>🌱</span>
+          <span className={styles.brandIcon} aria-hidden>
+            <SproutIcon size={22} />
+          </span>
           <span>Smart Plant</span>
         </div>
         {children}

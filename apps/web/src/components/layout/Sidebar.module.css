@@ -20,7 +20,8 @@
 }
 
 .brandIcon {
-  font-size: 20px;
+  display: inline-flex;
+  color: var(--sp-accent);
 }
 
 .list {
