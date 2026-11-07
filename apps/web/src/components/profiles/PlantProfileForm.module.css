@@ -6,7 +6,7 @@
 
 .group {
   border: 1px solid var(--sp-border-subtle);
-  border-radius: var(--sp-radius-lg);
+  border-radius: var(--sp-radius-xl);
   padding: var(--sp-space-md);
 }
 
