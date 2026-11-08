@@ -24,7 +24,7 @@ export function TankLevel({
   return (
     <div className={styles.wrap}>
       <div className={styles.track} style={{ height }}>
-        <div className={styles.fill} style={{ height: `${clamped}%` }} />
+        <div className={styles.fill} style={{ transform: `scaleY(${clamped / 100})` }} />
         <div className={styles.marker} style={{ bottom: "30%" }} aria-hidden />
         <div className={styles.marker} style={{ bottom: "15%" }} aria-hidden />
       </div>

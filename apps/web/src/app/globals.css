@@ -178,6 +178,35 @@ p {
   border-radius: var(--sp-radius-sm);
 }
 
+::selection {
+  background-color: var(--sp-accent);
+  color: var(--sp-on-accent);
+}
+
+html {
+  scrollbar-color: var(--sp-border-strong) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--sp-border-strong);
+  border-radius: var(--sp-radius-full);
+  border: 2px solid var(--sp-background-layer-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sp-neutral-subdued);
+}
+
 .sp-tabular {
   font-variant-numeric: tabular-nums;
 }
